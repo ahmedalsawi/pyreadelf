@@ -1,0 +1,11 @@
+rm -rf ./virtualenv pyreadelf.egg-info
+rm -rf `find . -type f -name "*.pyc"`
+virtualenv virtualenv
+source virtualenv/bin/activate
+pip install enum34
+pip install -e .
+pyreadelf ./tests/hello.o
+pyreadelf ./tests/hello
+## Enable after parsing dynamic
+#pyreadelf /bin/ls
+#pyreadelf /usr/lib/libnatpmp.so.1
